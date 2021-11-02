@@ -5,7 +5,7 @@ int n, m;
 int arr[9];
 bool visited[9] = { 0 };
 
-void dfs(int cnt) { //ÇöÀç À§Ä¡
+void dfs(int cnt) { //Ã‡Ã¶Ã€Ã§ Ã€Â§Ã„Â¡
 	if (cnt == m) { 
 		for (int i = 0; i < m; i++)
 			cout << arr[i] << " ";
