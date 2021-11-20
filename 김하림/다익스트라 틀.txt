@@ -1,0 +1,47 @@
+다익스트라 틀
+
+const int m = 99999999;
+struct Node{
+
+ int tar, price;
+};
+
+bool operator<(Node back, Node front){
+  return front.price < front.back;
+};
+
+priority_queue<Node> pq;
+vector<vector<Node>> vec(V);
+int used[V]={1};
+int result[V];
+
+int main(){
+
+//입력
+
+for(int i=0;i<V;i++{
+   result[i] = m;
+}
+
+pq.push({시작 노드, 0});
+
+while(!pq.empty(){
+   Node via = pq.top();
+   pq.pop();
+
+   if(used[via.tar] == 1) continue;
+   used[via.tar] = 1;
+
+   int sz = vec[via.tar].size();
+
+   for(in i=0;i<sz;i++){
+   via target = vec[via.tar][i];
+  
+   if(result[via.target] > via.price + target.price){
+       result[via.target] = via.price + target.price;
+       pq.push({target.tar,result[via.target]});
+     }
+   }
+}
+return 0;
+}
