@@ -1,5 +1,5 @@
-//±× Â¡°Ë´Ù¸®¿¡ ¾²¿©ÀÖ´Â ¹è¼ö¸¸Å­ ¶³¾îÁ® ÀÖ´Â °÷¸¸ ÀÌµ¿ °¡´É
-//a¹øÂ°¿¡¼­ b¹øÂ°·Î °¡·Á°í ÇÑ´Ù.
+//ê·¸ ì§•ê²€ë‹¤ë¦¬ì— ì“°ì—¬ìžˆëŠ” ë°°ìˆ˜ë§Œí¼ ë–¨ì–´ì ¸ ìžˆëŠ” ê³³ë§Œ ì´ë™ ê°€ëŠ¥
+//aë²ˆì§¸ì—ì„œ bë²ˆì§¸ë¡œ ê°€ë ¤ê³  í•œë‹¤.
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -28,24 +28,20 @@ int frog_jump() {
 			break;
 		}
 
-		if (cur < b) {
-			for (int i = 1; i <= N; i++) {
-				int next = cur + (stone[cur] * i);
+		for (int i = 1; i <= N; i++) {
+			int next = cur + (stone[cur] * i);
 
-				if (next >= 1 && next <= N && visited[next] == 0) {
-					visited[next] = 1;
-					que.push({ next,lev + 1 });
-				}
+			if (next >= 1 && next <= N && visited[next] == 0) {
+				visited[next] = 1;
+				que.push({ next,lev + 1 });
 			}
 		}
-		else if(cur > b) {
-			for (int i = 1; i <= N; i++) {
-				int next = (cur - stone[cur] * i);
+		for (int i = 1; i <= N; i++) {
+			int next = cur - (stone[cur] * i);
 
-				if (next >= 1 && next <= N && visited[next] == 0) {
-					visited[next] = 1;
-					que.push({ next,lev + 1 });
-				}
+			if (next >= 1 && next <= N && visited[next] == 0) {
+				visited[next] = 1;
+				que.push({ next,lev + 1 });
 			}
 		}
 	}
